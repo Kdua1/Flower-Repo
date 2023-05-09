@@ -1,9 +1,11 @@
 name: Build and Push
 on: 
   push:
+
 jobs:
   docker_build_tag_push:
     runs-on: ubuntu-latest
+    name: Docker Build, Tag & Push
  steps:
     - uses: actions/checkout@v1.0
       name: Check out code
