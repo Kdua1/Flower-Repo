@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Docker Build, Tag & Push
     steps:
-        - uses: actions/checkout@v1
+        - uses: actions/checkout@v3
           name: Check out code
-
-        - uses: mr-smithers-excellent/docker-build-push@v3
+      
+        - uses: mr-smithers-excellent/docker-build-push@v6
           name: Build & push Docker image
           with:
             image: kdua1/Flower-image
-            tag: v1,  latest
+            tags: v1, latest
             registry: Docker.io
             dockerfile: Dockerfile
             username: ${{ secrets.DOCKERHUB_USERNAME }}
