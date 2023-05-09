@@ -2,18 +2,20 @@ name: Build and Push
 on: 
   push:
 jobs:
-  docker:
+  docker_build_tag_push:
     runs-on: ubuntu-latest
+    name: Docker build, tag & push
 steps:
+
     - uses: actions/checkout@v1.0
       name: Check out code
 
     - uses: mr-smithers-excellent/docker-build-push@v3
       name: Build & push Docker image
       with:
-        image: repo/image
+        image: kdua1/Flower-image
         tags: v1, latest
-        registry: registry-url.io
-        dockerfile: Dockerfile.ci
+        registry: Docker.io
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
