@@ -6,16 +6,16 @@ jobs:
   docker_build_tag_push:
     runs-on: ubuntu-latest
     name: Docker Build, Tag & Push
-   steps:
-    - uses: actions/checkout@v1
-      name: Check out code
-
-    - uses: mr-smithers-excellent/docker-build-push@v3
-      name: Build & push Docker image
-      with:
-        image: kdua1/Flower-image
-        tags: v1, latest
-        registry: Docker.io
-        dockerfile: Dockerfile
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    steps:
+        - uses: actions/checkout@v1
+          name: Check out code
+        
+        - uses: mr-smithers-excellent/docker-build-push@v3
+          name: Build & push Docker image
+          with:
+            image: kdua1/Flower-image
+            tags: v1, latest
+            registry: Docker.io
+            dockerfile: Dockerfile
+            username: ${{ secrets.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
