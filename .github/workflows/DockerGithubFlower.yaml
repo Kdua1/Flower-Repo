@@ -5,8 +5,7 @@ jobs:
   docker_build_tag_push:
     runs-on: ubuntu-latest
     name: Docker build, tag & push
-steps:
-
+ steps:
     - uses: actions/checkout@v1.0
       name: Check out code
 
