@@ -15,7 +15,15 @@ jobs:
           with:
             image: kdua1/Flower-image
             tags: v1, latest
-            registry: Docker.io
+            registry: docker.io
             dockerfile: Dockerfile
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+        - uses: mr-smithers-excellent/docker-build-push@v3
+          with:
+            image: sample-app
+            registry: 546752724724.dkr.ecr.us-east-1.amazonaws.com/try-1-repo
+          env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
