@@ -19,6 +19,7 @@ jobs:
             dockerfile: Dockerfile
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
+            
         - uses: mr-smithers-excellent/docker-build-push@v3
           with:
             image: try-1-repo/sample-app
