@@ -19,11 +19,15 @@ jobs:
             dockerfile: Dockerfile
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
+          run:
+            docker build -t try-1-repo .
+            docker tag try-1-repo:latest 546752724724.dkr.ecr.us-east-1.amazonaws.com/try-1-repo:latest
+            docker push 546752724724.dkr.ecr.us-east-1.amazonaws.com/try-1-repo:latest
 
         - uses: mr-smithers-excellent/docker-build-push@v3
           with:
-            image: ecr-web-repo-sample-app
-            registry: 546752724724.dkr.ecr.us-east-2.amazonaws.com/ecr-web-repo
+            image: try-1-repo/sample-app
+            registry: 546752724724.dkr.ecr.us-east-1.amazonaws.com/try-1-repo
           env:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
