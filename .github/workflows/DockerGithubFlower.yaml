@@ -19,7 +19,7 @@ jobs:
             dockerfile: Dockerfile
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
-          run:
+          run: !
             docker build -t try-1-repo .
             docker tag try-1-repo:latest 546752724724.dkr.ecr.us-east-1.amazonaws.com/try-1-repo:latest
             docker push 546752724724.dkr.ecr.us-east-1.amazonaws.com/try-1-repo:latest
